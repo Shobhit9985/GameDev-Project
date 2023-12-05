@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\AnimationStateController.cs" />
+    <Compile Include="Assets\Script\Attack.cs" />
     <Compile Include="Assets\Script\Camera.cs" />
     <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_Camera.cs" />
     <Compile Include="Assets\Scripts\MovePlayer.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_Reflection.cs" />
     <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_CamNav.cs" />
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
+    <Compile Include="Assets\Script\MouseRotation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AssetPacks\Pine Forest_LowPoly\Shaders\Ground_Simple.shader" />
@@ -720,6 +722,10 @@
       <Project>{229E94A5-DB1C-9522-297A-B90067CC9C76}</Project>
       <Name>Unity.VisualScripting.SettingsProvider.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="com.unity.cinemachine.editor.csproj">
+      <Project>{949F5041-0A31-D877-B98D-078CDE33F322}</Project>
+      <Name>com.unity.cinemachine.editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Performance.Profile-Analyzer.Editor.csproj">
       <Project>{B9EB711B-D99A-398F-63E3-AFE18D66C46E}</Project>
       <Name>Unity.Performance.Profile-Analyzer.Editor</Name>
@@ -783,6 +789,10 @@
     <ProjectReference Include="Unity.VSCode.Editor.csproj">
       <Project>{C7DBABAE-A6B0-E643-65F9-9FCE588BAE15}</Project>
       <Name>Unity.VSCode.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Cinemachine.csproj">
+      <Project>{4DAFF176-9B2E-B7C2-9799-7F575929388B}</Project>
+      <Name>Cinemachine</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
       <Project>{D33AB340-5290-D439-E2E7-C3C7EEAA43AA}</Project>
