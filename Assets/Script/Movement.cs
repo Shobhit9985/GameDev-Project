@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     public float moveSpeed = 5.0f;
     private bool crouch = false;
     public GameObject lookAt;
+    public GameObject target;
 
     private Rigidbody rb; // Use Rigidbody for 3D games
 
@@ -48,5 +49,24 @@ public class Movement : MonoBehaviour
                 crouch = false;
             }
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.CompareTag("Weapon"))
+        {
+            Debug.Log("jekll");
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Weapon picked up");
+                WeaponEquip(other.gameObject);
+                Destroy(other.gameObject);
+            }
+        }
+    }
+
+    void WeaponEquip(GameObject obj)
+    {
+        Instantiate(obj, target.transform.position, target.transform.rotation).transform.SetParent(this.transform, true);
     }
 }
