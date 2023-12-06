@@ -5,17 +5,23 @@ using UnityEngine;
 public class AnimationStateController : MonoBehaviour
 {
     Animator animator;
-    float velocity = 0.0f;
-    float acceleration = 0.5f;
+    float verticalVelocity = 0.0f;
+    float horizontalVelocity = 0.0f;
+    float acceleration = 0.8f;
     float deceleration = 0.8f;
-    int VelocityHash;
-    int isJumpingHash;
+    int VerticalHash;
+    int HorizontalHash;
+    int JumpHash;
+    int CrouchHash;
+    bool crouch = false;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        VelocityHash = Animator.StringToHash("Velocity");
-        isJumpingHash = Animator.StringToHash("isJumping");
+        VerticalHash = Animator.StringToHash("Vertical");
+        HorizontalHash = Animator.StringToHash("Horizontal");
+        JumpHash = Animator.StringToHash("Jump");
+        CrouchHash = Animator.StringToHash("Crouch");
     }
 
     // Update is called once per frame
@@ -23,47 +29,110 @@ public class AnimationStateController : MonoBehaviour
     {
         bool forwardPressed = Input.GetKey("w");
         bool runPressed = Input.GetKey("left shift");
-        bool jumpPressed = Input.GetKey("space");
-        bool isJumping = animator.GetBool(isJumpingHash);
+        bool backwardPressed = Input.GetKey("s");
+        bool rightPressed = Input.GetKey("d");
+        bool leftPressed = Input.GetKey("a");
+        // bool jumpPressed = animator.GetBool(JumpHash);
 
-        // Walking
-        if (forwardPressed && velocity < 0.5f)
+        WalkingForward(forwardPressed);
+        Running(forwardPressed, runPressed);
+        WalkingBackward(backwardPressed);
+        RightStrafe(rightPressed);
+        LeftStrafe(leftPressed);
+        Crouching();
+
+        animator.SetFloat(VerticalHash, verticalVelocity);
+        animator.SetFloat(HorizontalHash, horizontalVelocity);
+        // animator.SetBool(JumpHash, jumpPressed);
+
+    }
+
+    private void WalkingForward(bool forwardPressed)
+    {
+        if (forwardPressed && verticalVelocity < 1.0f)
         {
-            velocity += Time.deltaTime * acceleration;
+            verticalVelocity = 1.0f;
         }
 
-        if (!forwardPressed && velocity > 0.0f)
+        if (!forwardPressed && verticalVelocity > 0.0f)
         {
-            velocity -= Time.deltaTime * deceleration;
+            verticalVelocity = 0.0f;
         }
 
-        if (!forwardPressed && velocity < 0.0f)
+        if (!forwardPressed && verticalVelocity < 0.0f)
         {
-            velocity = 0.0f;
+            verticalVelocity = 0.0f;
+        }
+       
+    }
+
+    private void Running(bool forwardPressed, bool runPressed)
+    {
+        if (forwardPressed && runPressed && verticalVelocity < 2.0f)
+        {
+            verticalVelocity += Time.deltaTime * acceleration;
         }
 
-        // Running
-        if (forwardPressed && runPressed && velocity < 1.0f)
+        if (!runPressed && verticalVelocity > 0.1f)
         {
-            velocity += Time.deltaTime * acceleration;
+            verticalVelocity -= Time.deltaTime * deceleration;
         }
 
-        if (!runPressed && velocity > 0.5f)
+       
+    }
+
+    private void WalkingBackward(bool backwardPressed)
+    {
+        if (backwardPressed && verticalVelocity >= 0.0f)
         {
-            velocity -= Time.deltaTime * deceleration;
+            verticalVelocity = -1.0f;
         }
 
-        // Jumping (Not Fixed)
-        if (!isJumping && jumpPressed)
+        if (!backwardPressed && verticalVelocity < 0.0f)
         {
-            animator.SetBool(isJumpingHash, true);
+            verticalVelocity = 0.0f;
         }
         
-        if (isJumping && !jumpPressed)
-        {
-            animator.SetBool(isJumpingHash, false);
-        }
+    }
 
-        animator.SetFloat(VelocityHash, velocity);
+    private void RightStrafe(bool rightPressed)
+    {
+        if (rightPressed && horizontalVelocity < 1.0f)
+        {
+            horizontalVelocity = 1.0f;
+        }
+        if (!rightPressed && horizontalVelocity > 0.0f)
+        {
+            horizontalVelocity = 0.0f;
+        }
+    }
+
+    private void LeftStrafe(bool leftPressed)
+    {
+        if (leftPressed && horizontalVelocity >= 0.0f)
+        {
+            horizontalVelocity = -1.0f;
+        }
+        if (!leftPressed && horizontalVelocity < 0.0f)
+        {
+            horizontalVelocity = 0.0f;
+        }
+    }
+
+    private void Crouching()
+    {
+        if (Input.GetKeyDown("c"))
+        {
+            if (crouch == true)
+            {
+                crouch = false;
+                animator.SetBool(CrouchHash, false);
+            }
+            else
+            {
+                crouch = true;
+                animator.SetBool(CrouchHash, true);
+            }
+        }
     }
 }
