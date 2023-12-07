@@ -4,17 +4,33 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float moveSpeed = 5.0f;
-    private bool crouch = false;
-    public GameObject lookAt;
-    public GameObject target;
+    [SerializeField]
+    private float maximumSpeed;
 
-    private Rigidbody rb; // Use Rigidbody for 3D games
+    [SerializeField]
+    private float rotationSpeed;
+
+    [SerializeField]
+    private float jumpSpeed;
+
+    [SerializeField]
+    private float jumpButtonGracePeriod;
+
+    [SerializeField]
+    private Transform cameraTransform;
+
+    private CharacterController characterController;
+    private float ySpeed;
+   
+    private bool crouch = false;
+    public GameObject target;
+    public GameObject lookAt;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -26,11 +42,11 @@ public class Movement : MonoBehaviour
 
     void MovePlayer()
     {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(moveX, 0, moveZ) * moveSpeed;
-        rb.velocity = new Vector3(move.x, rb.velocity.y, move.z);
+        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
+    
     }
 
     private void Crouching()
@@ -68,5 +84,17 @@ public class Movement : MonoBehaviour
     void WeaponEquip(GameObject obj)
     {
         Instantiate(obj, target.transform.position, target.transform.rotation).transform.SetParent(this.transform, true);
+    }
+
+    private void OnApplicationFocus(bool focus)
+    {
+        if (focus)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }
