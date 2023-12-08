@@ -40,6 +40,7 @@ public class AnimationStateController : MonoBehaviour
         RightStrafe(rightPressed);
         LeftStrafe(leftPressed);
         Crouching();
+        Attack();
 
         animator.SetFloat(VerticalHash, verticalVelocity);
         animator.SetFloat(HorizontalHash, horizontalVelocity);
@@ -133,6 +134,14 @@ public class AnimationStateController : MonoBehaviour
                 crouch = true;
                 animator.SetBool(CrouchHash, true);
             }
+        }
+    }
+
+    private void Attack()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetTrigger("Attack");
         }
     }
 }
