@@ -42,15 +42,15 @@ public class Movement : MonoBehaviour
     }
 
     void MovePlayer()
-    {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+{
+    float horizontalInput = Input.GetAxis("Horizontal");
+    float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
+    Vector3 movementDirection = cameraTransform.forward * verticalInput + cameraTransform.right * horizontalInput;
+    movementDirection.y = 0f; // Ensure the player stays level with the ground
 
-        transform.Translate(maximumSpeed * Time.deltaTime * movementDirection);
-    
-    }
+    characterController.Move(movementDirection * maximumSpeed * Time.deltaTime);
+}
 
     private void Crouching()
     {
