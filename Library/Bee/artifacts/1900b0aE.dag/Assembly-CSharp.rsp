@@ -361,6 +361,7 @@
 "Assets/Script/AnimationStateController.cs"
 "Assets/Script/Attack.cs"
 "Assets/Script/Camera.cs"
+"Assets/Script/CoinRotateAndDestroy.cs"
 "Assets/Script/LevelLoader.cs"
 "Assets/Script/LevelLoader1.cs"
 "Assets/Script/MouseRotation.cs"

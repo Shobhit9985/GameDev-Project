@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\AnimationStateController.cs" />
+     <Compile Include="Assets\Script\CoinRotateAndDestroy.cs" />
      <Compile Include="Assets\Script\Attack.cs" />
      <Compile Include="Assets\Script\Camera.cs" />
      <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_Camera.cs" />
