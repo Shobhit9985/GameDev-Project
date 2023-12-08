@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public float health = 100f;
     [SerializeField]
     private float maximumSpeed;
 

@@ -62,12 +62,15 @@
     <Compile Include="Assets\Script\CoinRotateAndDestroy.cs" />
     <Compile Include="Assets\Script\Attack.cs" />
     <Compile Include="Assets\Script\Camera.cs" />
+    <Compile Include="Assets\ScriptableObjects\AbilityScriptableObject.cs" />
+    <Compile Include="Assets\AbilityHolder.cs" />
     <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_Camera.cs" />
     <Compile Include="Assets\Script\LevelLoader.cs" />
     <Compile Include="Assets\Scripts\MovePlayer.cs" />
     <Compile Include="Assets\Script\Movement.cs" />
     <Compile Include="Assets\Script\LevelLoader1.cs" />
     <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_Reflection.cs" />
+    <Compile Include="Assets\HealAbility.cs" />
     <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_CamNav.cs" />
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
     <Compile Include="Assets\Script\MouseRotation.cs" />
