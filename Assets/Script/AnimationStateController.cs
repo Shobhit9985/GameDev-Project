@@ -13,7 +13,9 @@ public class AnimationStateController : MonoBehaviour
     int HorizontalHash;
     int JumpHash;
     int CrouchHash;
+    int GunHash;
     bool crouch = false;
+    public bool gun = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class AnimationStateController : MonoBehaviour
         HorizontalHash = Animator.StringToHash("Horizontal");
         JumpHash = Animator.StringToHash("Jump");
         CrouchHash = Animator.StringToHash("Crouch");
+        GunHash = Animator.StringToHash("Gun");
     }
 
     // Update is called once per frame
@@ -40,6 +43,7 @@ public class AnimationStateController : MonoBehaviour
         RightStrafe(rightPressed);
         LeftStrafe(leftPressed);
         Crouching();
+        Gun();
         Attack();
 
         animator.SetFloat(VerticalHash, verticalVelocity);
@@ -142,6 +146,23 @@ public class AnimationStateController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             animator.SetTrigger("Attack");
+        }
+    }
+
+    private void Gun()
+    {
+        if (Input.GetKeyDown("g"))
+        {
+            if (gun == true)
+            {
+                gun = false;
+                animator.SetBool(GunHash, false);
+            }
+            else
+            {
+                gun = true;
+                animator.SetBool(GunHash, true);
+            }
         }
     }
 }

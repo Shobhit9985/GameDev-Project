@@ -70,25 +70,6 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if(other.gameObject.CompareTag("Weapon"))
-        {
-            Debug.Log("jekll");
-            if(Input.GetKeyDown(KeyCode.E))
-            {
-                Debug.Log("Weapon picked up");
-                WeaponEquip(other.gameObject);
-                Destroy(other.gameObject);
-            }
-        }
-    }
-
-    void WeaponEquip(GameObject obj)
-    {
-        Instantiate(obj, target.transform.position, target.transform.rotation).transform.SetParent(this.transform, true);
-    }
-
     private void OnApplicationFocus(bool focus)
     {
         if (focus)

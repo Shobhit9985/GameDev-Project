@@ -8,6 +8,9 @@ public class Gun : MonoBehaviour
     //bullet 
     public GameObject bullet;
 
+    // Animation Script
+    public AnimationStateController script;
+
     //bullet force
     public float shootForce, upwardForce;
 
@@ -46,11 +49,13 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MyInput();
+        if (script.gun == true){
+            MyInput();
 
-        //Set ammo display, if it exists :D
-        if (ammunitionDisplay != null)
-            ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
+            //Set ammo display, if it exists :D
+            if (ammunitionDisplay != null)
+                ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
+        }
     }
 
     private void MyInput()
