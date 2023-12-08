@@ -46,6 +46,8 @@ public class Movement : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
+
+        transform.Translate(maximumSpeed * Time.deltaTime * movementDirection);
     
     }
 
