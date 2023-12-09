@@ -48,6 +48,7 @@
      <Compile Include="Assets\AbilityHolder.cs" />
      <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_Camera.cs" />
      <Compile Include="Assets\Script\LevelLoader.cs" />
+     <Compile Include="Assets\Script\MainMenuController.cs" />
      <Compile Include="Assets\Scripts\MovePlayer.cs" />
      <Compile Include="Assets\Script\Movement.cs" />
      <Compile Include="Assets\HealthBar.cs" />
@@ -58,6 +59,7 @@
      <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_CamNav.cs" />
      <Compile Include="Assets\Script\CoinCounter.cs" />
      <Compile Include="Assets\Scripts\FollowPlayer.cs" />
+     <Compile Include="Assets\Script\Settings.cs" />
      <Compile Include="Assets\Script\Gun.cs" />
      <Compile Include="Assets\Script\MouseRotation.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
