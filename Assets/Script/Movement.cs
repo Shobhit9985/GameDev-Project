@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public HealthBar healthBar;
     public float health = 100f;
     [SerializeField]
     private float maximumSpeed;
@@ -32,6 +33,9 @@ public class Movement : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+
+        //healthBar = GetComponent<HealthBar>();
+        healthBar.SetMaxhealth(health);
     }
 
     // Update is called once per frame
@@ -42,15 +46,18 @@ public class Movement : MonoBehaviour
     }
 
     void MovePlayer()
-{
-    float horizontalInput = Input.GetAxis("Horizontal");
-    float verticalInput = Input.GetAxis("Vertical");
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
-    Vector3 movementDirection = cameraTransform.forward * verticalInput + cameraTransform.right * horizontalInput;
-    movementDirection.y = 0f; // Ensure the player stays level with the ground
+        Vector3 movementDirection = cameraTransform.forward * verticalInput + cameraTransform.right * horizontalInput;
+        movementDirection.y = 0f; // Ensure the player stays level with the ground
 
-    characterController.Move(movementDirection * maximumSpeed * Time.deltaTime);
-}
+        characterController.Move(movementDirection * maximumSpeed * Time.deltaTime);
+
+        // Update the health value in the HealthBar script
+        healthBar.SetHealth(health);
+    }
 
     private void Crouching()
     {

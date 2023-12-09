@@ -5,7 +5,13 @@ using UnityEngine;
 public class CoinRotateAndDestroy : MonoBehaviour
 {
     public Vector3 rotationSpeed = new Vector3(30, 15, 45); // Rotation speed in degrees per second
+    private CoinCounter coinCounter;
 
+    void Start()
+    {
+        // Find the CoinCounter script in the scene
+        coinCounter = FindObjectOfType<CoinCounter>();
+    }
     void Update()
     {
         // Calculate the rotation increment based on time
@@ -22,6 +28,7 @@ public class CoinRotateAndDestroy : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Destroy the coin game object
+            coinCounter.CollectCoin();
             Destroy(gameObject);
         }
     }
