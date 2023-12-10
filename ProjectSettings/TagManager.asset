@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Weapon
   - Coin
+  - Event
   layers:
   - Default
   - TransparentFX
