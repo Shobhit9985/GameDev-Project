@@ -374,6 +374,7 @@
 "Assets/Script/MouseRotation.cs"
 "Assets/Script/Movement.cs"
 "Assets/Script/Settings.cs"
+"Assets/Script/Tutorial.cs"
 "Assets/ScriptableObjects/AbilityScriptableObject.cs"
 "Assets/Scripts/FollowPlayer.cs"
 "Assets/Scripts/MovePlayer.cs"
