@@ -313,6 +313,7 @@
 "Assets/AQUAS-Lite/Scripts/AQUAS_Lite_Camera.cs"
 "Assets/AQUAS-Lite/Scripts/AQUAS_Lite_CamNav.cs"
 "Assets/AQUAS-Lite/Scripts/AQUAS_Lite_Reflection.cs"
+"Assets/ButtonInfo.cs"
 "Assets/HealAbility.cs"
 "Assets/HealthBar.cs"
 "Assets/Script/AnimationStateController.cs"
@@ -320,6 +321,7 @@
 "Assets/Script/Camera.cs"
 "Assets/Script/CoinCounter.cs"
 "Assets/Script/CoinRotateAndDestroy.cs"
+"Assets/Script/GameManager.cs"
 "Assets/Script/Gun.cs"
 "Assets/Script/GunPickup.cs"
 "Assets/Script/LevelLoader.cs"
@@ -327,9 +329,12 @@
 "Assets/Script/MainMenuController.cs"
 "Assets/Script/MouseRotation.cs"
 "Assets/Script/Movement.cs"
+"Assets/Script/Settings.cs"
 "Assets/ScriptableObjects/AbilityScriptableObject.cs"
 "Assets/Scripts/FollowPlayer.cs"
 "Assets/Scripts/MovePlayer.cs"
+"Assets/ShopManagerScript.cs"
+"Assets/Splashscreen/SpashSCntrl.cs"
 -langversion:9.0
 
 /deterministic
