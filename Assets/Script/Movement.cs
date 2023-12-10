@@ -27,22 +27,18 @@ public class Movement : MonoBehaviour
     private bool crouch = false;
     public GameObject target;
     public GameObject lookAt;
+    public float turnSpeed;
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        characterController = GetComponent<CharacterController>();
-
-        //healthBar = GetComponent<HealthBar>();
-        healthBar.SetMaxhealth(health);
-    }
-
-    // Update is called once per frame
     void Update()
     {
         MovePlayer();
         Crouching();
+
+        // Rotate the player based on mouse input
+        float y = Input.GetAxis("Mouse X") * turnSpeed;
+        transform.Rotate(0, y, 0);
     }
 
     void MovePlayer()
@@ -50,7 +46,8 @@ public class Movement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 movementDirection = cameraTransform.forward * verticalInput + cameraTransform.right * horizontalInput;
+        // Calculate the movement direction based on player's current orientation
+        Vector3 movementDirection = transform.forward * verticalInput + transform.right * horizontalInput;
         movementDirection.y = 0f; // Ensure the player stays level with the ground
 
         characterController.Move(movementDirection * maximumSpeed * Time.deltaTime);
