@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     float playerCollectedCoins = 0;
     public static GameManager instance;
     private GameState gameState;
+    public ShopManagerScript manager;
 
     private void Start()
     {

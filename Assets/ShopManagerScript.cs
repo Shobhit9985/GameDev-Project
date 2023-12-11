@@ -10,10 +10,12 @@ public class ShopManagerScript : MonoBehaviour
     public float coins;
     public TMPro.TextMeshProUGUI CoinsTXT;
     public GameObject buyMenu;
+    public Text CoinsUI;
     // Start is called before the first frame update
     void Start()
     {
         CoinsTXT.text = "Coins: " + coins;
+        CoinsUI.text = "Coins: " + coins;
         shopItems[1, 1] = 1;
         shopItems[1, 2] = 2;
         shopItems[1, 3] = 3;
@@ -40,6 +42,7 @@ public class ShopManagerScript : MonoBehaviour
 
             shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
             CoinsTXT.text = "Coins: " + coins;
+            CoinsUI.text = "Coins: " + coins;
             ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
         }
     }
@@ -54,5 +57,13 @@ public class ShopManagerScript : MonoBehaviour
 
         }
         
+    }
+
+    public void AdddCoin()
+    {
+        coins++;
+        CoinsTXT.text = "Coins: " + coins;
+        CoinsUI.text = "Coins: " + coins;
+
     }
 }

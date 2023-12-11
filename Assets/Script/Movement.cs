@@ -94,4 +94,14 @@ public class Movement : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Coin"))
+        {
+            Debug.Log("Coins++");
+            GameManager.instance.manager.AdddCoin();
+            Destroy(collision.gameObject);
+        }
+    }
 }
