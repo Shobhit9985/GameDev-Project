@@ -59,7 +59,7 @@ public class ShopManagerScript : MonoBehaviour
         
     }
 
-    public void AdddCoin()
+    public void AddCoin()
     {
         coins++;
         CoinsTXT.text = "Coins: " + coins;
