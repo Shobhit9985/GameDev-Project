@@ -5,9 +5,8 @@ using UnityEngine.AI;
 
 public class Attack : MonoBehaviour
 {
-    public Transform attackPoint;
-    public float attackRange = 0.5f;
-    public LayerMask enemyLayers;
+    public float punchDamage = 20f;
+    public LayerMask enemyLayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,11 +25,16 @@ public class Attack : MonoBehaviour
 
     void Meele()
     {
-        Debug.Log("attack");
-        Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
-        foreach (Collider c in hitEnemies)
-        {
-            Debug.Log(c.name);
-        }
+        RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, enemyLayer))
+            {
+                // Check if the hit object has an EnemyController script
+                EnemyController enemy = hit.collider.GetComponent<EnemyController>();
+                if (enemy != null)
+                {
+                    // Deal damage to the enemy
+                    enemy.TakeDamage(punchDamage);
+                }
+            }
     }
 }
