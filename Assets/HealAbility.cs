@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [CreateAssetMenu]
 public class HealAbility : AbilityScriptableObject
@@ -9,13 +10,14 @@ public class HealAbility : AbilityScriptableObject
 
     public override void Activate(GameObject obj)
     {
-        Movement movement = obj.GetComponent<Movement>();
-        if(movement != null)
+        GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
+        if (GameManager.instance.manager.shopItems[3, 1] > 0)
         {
-            movement.health += healAmount;
-            Debug.Log(movement.health);
-        }
+            GameManager.instance.Heal(10);
+            Debug.Log("Heal");
 
+            GameManager.instance.manager.shopItems[3, 1]--;
+        }
     }
 
 }
