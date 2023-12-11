@@ -14,6 +14,9 @@ public class Tutorial : MonoBehaviour
         "Press the S key to move backward", 
         "Press the LEFT SHIFT key while moving forward to sprint", 
         "Press the SPACE key to jump" ,
+        "Press the G key to equip your weapon",
+        "Press Left Click to shoot",
+        "Press the R key to reload your weapon",
         "Congratulations you have finished the tutorial"
     };
 
@@ -57,7 +60,22 @@ public class Tutorial : MonoBehaviour
             CurrentOption++;
             TutorialText.text = TutorialOptions[CurrentOption];
         }
-        else if (TutorialText.text == TutorialOptions[6])
+        else if (Input.GetKeyDown("g") && TutorialText.text == TutorialOptions[6])
+        {
+            CurrentOption++;
+            TutorialText.text = TutorialOptions[CurrentOption];
+        }
+        else if (Input.GetMouseButtonDown(0) && TutorialText.text == TutorialOptions[7])
+        {
+            CurrentOption++;
+            TutorialText.text = TutorialOptions[CurrentOption];
+        }
+        else if (Input.GetKeyDown("r") && TutorialText.text == TutorialOptions[8])
+        {
+            CurrentOption++;
+            TutorialText.text = TutorialOptions[CurrentOption];
+        }
+        else if (TutorialText.text == TutorialOptions[9])
         {
             if (Waited > 1.00f)
             {
