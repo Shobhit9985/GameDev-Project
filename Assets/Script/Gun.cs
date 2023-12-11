@@ -51,7 +51,6 @@ public class Gun : MonoBehaviour
     void Update()
     {
         if (script.gun == true){
-            gameObject.SetActive(true);
             MyInput();
 
             //Set ammo display, if it exists :D
@@ -112,9 +111,11 @@ public class Gun : MonoBehaviour
         currentBullet.transform.forward = directionWithSpread.normalized;
 
         //Add forces to bullet
+
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForce, ForceMode.Impulse);
 
+        currentBullet.GetComponent<Rigidbody>().GetComponent<Collider>().attachedRigidbody.gameObject.AddComponent<BulletCollisionHandler>();
         //Instantiate muzzle flash, if you have one
         if (muzzleFlash != null)
             Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);

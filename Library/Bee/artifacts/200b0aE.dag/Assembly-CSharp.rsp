@@ -363,6 +363,7 @@
 "Assets/HealthBar.cs"
 "Assets/Script/AnimationStateController.cs"
 "Assets/Script/Attack.cs"
+"Assets/Script/BulletCollisionHandler.cs"
 "Assets/Script/Camera.cs"
 "Assets/Script/CoinCounter.cs"
 "Assets/Script/CoinRotateAndDestroy.cs"
