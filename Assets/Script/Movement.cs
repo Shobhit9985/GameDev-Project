@@ -35,6 +35,7 @@ public class Movement : MonoBehaviour
     //for healthbar UI
     void Start()
     {
+        characterController = GetComponent<CharacterController>();
         //healthBar = GetComponent<HealthBar>();
         healthBar.SetMaxhealth(health);
     }

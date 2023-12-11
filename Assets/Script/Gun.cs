@@ -44,18 +44,21 @@ public class Gun : MonoBehaviour
         //make sure magazine is full
         bulletsLeft = magazineSize;
         readyToShoot = true;
+        // gameObject.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (script.gun == true){
+            gameObject.SetActive(false);
             MyInput();
 
             //Set ammo display, if it exists :D
             if (ammunitionDisplay != null)
                 ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
         }
+        gameObject.SetActive(true);
     }
 
     private void MyInput()
