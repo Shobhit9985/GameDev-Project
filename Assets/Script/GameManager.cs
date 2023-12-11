@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,9 +10,11 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private GameState gameState;
     public ShopManagerScript manager;
+    public Slider HealthBar;
 
     private void Start()
     {
+
         gameState = GameState.playing;
         if(instance == null)
         {
@@ -43,5 +46,17 @@ public class GameManager : MonoBehaviour
     public void PlayerDamage(float damage)
     {
         playerHealth -= damage;
+    }
+    public void Update()
+    {
+        HealthBar.value = playerHealth;
+    }
+
+    public void Heal(int Heal)
+    {
+        if(playerHealth < 100)
+        {
+            playerHealth += Heal;
+        }
     }
 }

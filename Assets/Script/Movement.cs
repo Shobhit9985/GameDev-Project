@@ -103,5 +103,9 @@ public class Movement : MonoBehaviour
             GameManager.instance.manager.AdddCoin();
             Destroy(collision.gameObject);
         }
+        if(collision.gameObject.CompareTag("Bullet"))
+        {
+            GameManager.instance.PlayerDamage(10);
+        }
     }
 }
