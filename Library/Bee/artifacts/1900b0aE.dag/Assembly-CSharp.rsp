@@ -109,6 +109,7 @@
 -define:ENABLE_UNITY_COLLECTIONS_CHECKS
 -define:ENABLE_BURST_AOT
 -define:UNITY_TEAM_LICENSE
+-define:UNITY_PRO_LICENSE
 -define:ENABLE_CUSTOM_RENDER_TEXTURE
 -define:ENABLE_DIRECTOR
 -define:ENABLE_LOCALIZATION
@@ -359,6 +360,7 @@
 "Assets/AQUAS-Lite/Scripts/AQUAS_Lite_CamNav.cs"
 "Assets/AQUAS-Lite/Scripts/AQUAS_Lite_Reflection.cs"
 "Assets/ButtonInfo.cs"
+"Assets/CullingScript.cs"
 "Assets/HealAbility.cs"
 "Assets/HealthBar.cs"
 "Assets/Script/AnimationStateController.cs"
