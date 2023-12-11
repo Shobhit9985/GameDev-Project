@@ -44,11 +44,45 @@ public class Movement : MonoBehaviour
     {
         MovePlayer();
         Crouching();
+        Jump();
+        Sprint();
 
         // Rotate the player based on mouse input
         float y = Input.GetAxis("Mouse X") * turnSpeed;
         transform.Rotate(0, y, 0);
     }
+
+    void Jump()
+    {
+        // Check if the jump key (Space) is pressed
+        if (Input.GetButtonDown("Jump") && characterController.isGrounded)
+        {
+            // Apply an upward force for jumping
+            ySpeed = jumpSpeed;
+        }
+
+        // Apply gravity to simulate the character falling
+        ySpeed += Physics.gravity.y * Time.deltaTime;
+
+        // Apply the vertical movement to the character controller
+        Vector3 verticalMovement = new Vector3(0, ySpeed, 0);
+        characterController.Move(verticalMovement * Time.deltaTime);
+    }
+
+    void Sprint(){
+        // Check if the left shift key is pressed
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            // Increase the movement speed when sprinting
+            maximumSpeed = 40f/* Set your sprint speed here */;
+        }
+        else
+        {
+            // Reset the movement speed when not sprinting
+            maximumSpeed = 10f/* Set your normal speed here */;
+        }
+    }
+
 
     void MovePlayer()
     {
@@ -59,7 +93,14 @@ public class Movement : MonoBehaviour
         Vector3 movementDirection = transform.forward * verticalInput + transform.right * horizontalInput;
         movementDirection.y = 0f; // Ensure the player stays level with the ground
 
-        characterController.Move(movementDirection * maximumSpeed * Time.deltaTime);
+        //characterController.Move(movementDirection * maximumSpeed * Time.deltaTime);
+        characterController.SimpleMove(movementDirection * maximumSpeed);
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.5f))
+        {
+            // Adjust the player's position based on the ground normal
+            transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+        }
 
         // Update the health value in the HealthBar script
         healthBar.SetHealth(health);
