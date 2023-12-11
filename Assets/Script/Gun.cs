@@ -44,21 +44,19 @@ public class Gun : MonoBehaviour
         //make sure magazine is full
         bulletsLeft = magazineSize;
         readyToShoot = true;
-        // gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (script.gun == true){
-            gameObject.SetActive(false);
             MyInput();
 
             //Set ammo display, if it exists :D
             if (ammunitionDisplay != null)
                 ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
         }
-        gameObject.SetActive(true);
     }
 
     private void MyInput()
@@ -113,9 +111,11 @@ public class Gun : MonoBehaviour
         currentBullet.transform.forward = directionWithSpread.normalized;
 
         //Add forces to bullet
+
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForce, ForceMode.Impulse);
 
+        currentBullet.GetComponent<Rigidbody>().GetComponent<Collider>().attachedRigidbody.gameObject.AddComponent<BulletCollisionHandler>();
         //Instantiate muzzle flash, if you have one
         if (muzzleFlash != null)
             Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);

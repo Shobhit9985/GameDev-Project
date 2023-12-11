@@ -16,6 +16,7 @@ public class AnimationStateController : MonoBehaviour
     int GunHash;
     bool crouch = false;
     public bool gun = false;
+    public GameObject gunObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -155,11 +156,13 @@ public class AnimationStateController : MonoBehaviour
         {
             if (gun == true)
             {
+                gunObject.SetActive(false);
                 gun = false;
                 animator.SetBool(GunHash, false);
             }
             else
-            {
+            { 
+                gunObject.SetActive(true);
                 gun = true;
                 animator.SetBool(GunHash, true);
             }

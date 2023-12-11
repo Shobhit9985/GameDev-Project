@@ -100,7 +100,7 @@ public class Movement : MonoBehaviour
         if(collision.gameObject.CompareTag("Coin"))
         {
             Debug.Log("Coins++");
-            GameManager.instance.manager.AdddCoin();
+            GameManager.instance.manager.AddCoin();
             Destroy(collision.gameObject);
         }
         if(collision.gameObject.CompareTag("Bullet"))
