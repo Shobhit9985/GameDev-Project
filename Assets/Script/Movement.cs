@@ -31,6 +31,14 @@ public class Movement : MonoBehaviour
 
 
     // Start is called before the first frame update
+
+    //for healthbar UI
+    void Start()
+    {
+        //healthBar = GetComponent<HealthBar>();
+        healthBar.SetMaxhealth(health);
+    }
+    //
     void Update()
     {
         MovePlayer();
