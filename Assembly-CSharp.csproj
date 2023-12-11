@@ -57,6 +57,7 @@
      <Compile Include="Assets\Script\LevelLoader1.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_Reflection.cs" />
+     <Compile Include="Assets\Script\BulletCollisionHandler.cs" />
      <Compile Include="Assets\Script\GunPickup.cs" />
      <Compile Include="Assets\Script\Tutorial.cs" />
      <Compile Include="Assets\HealAbility.cs" />
