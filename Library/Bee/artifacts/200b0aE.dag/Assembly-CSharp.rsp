@@ -361,6 +361,7 @@
 "Assets/CullingScript.cs"
 "Assets/HealAbility.cs"
 "Assets/HealthBar.cs"
+"Assets/Nokobot/Modern Guns - Handgun/_Demo Assets/SimpleShoot.cs"
 "Assets/Script/AnimationStateController.cs"
 "Assets/Script/Attack.cs"
 "Assets/Script/BulletCollisionHandler.cs"
