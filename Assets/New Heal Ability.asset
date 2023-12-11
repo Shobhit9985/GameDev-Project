@@ -1,18 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c84b379714f515e4fb72d8494b043700, type: 3}
-  m_Name: New Heal Ability
-  m_EditorClassIdentifier: 
-  name: Heal
-  cooldownTime: 10
-  activeTime: 1
-  healAmount: 10
+version https://git-lfs.github.com/spec/v1
+oid sha256:86fcf278abd2cd6b497851cff0eb067c730dbf2664f473447d0aad65b351b425
+size 488

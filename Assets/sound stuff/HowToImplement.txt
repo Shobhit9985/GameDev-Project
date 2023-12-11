@@ -1,0 +1,46 @@
+Music
+    attach music prefab to game camera 
+    in movement controller add the following 
+
+        public GameObject MusicController;
+        MusicController musicController;
+        musicController = MusicController.GetComponent<MusicController>();
+
+        it is defualt set to play outside ambient
+        to play inside ambient use musicController.PlayInsideAmbient()
+
+        to play tense music use  musicController.PlayTense();
+
+        to play triumphant sound effect use musicController.PlayTriumphant(bool outside);
+        the var is for what env you are in when calling so it can go back to the correct ambient once it is finished
+
+
+footAudio
+    attach to character gameobject and possition at the feet
+    in movement controller add
+
+        public GameObject MovementSound;
+        MovementSound movementSound; 
+
+        movementSound = MovementSound.GetComponent<MovementSound>();
+
+        where you implement the movement controls, add
+        if (!inAir)
+            {
+                 movementSound.PlayRunGround();
+            }
+            else if (!inAir)
+            {
+                movementSound.StopAudio();
+            }
+        use movementSound.PlayRunWater(); instead if the surface is water
+
+        where you implement jump add
+        movementSound.PlayJump();
+
+Ambient Sounds
+    place around outside of map of random Sounds
+    place throughout env for constant Sounds
+    control this choice with the bool random small sounds that is on the gameobject
+    if true, will randomly play a different sound every 8 seconds
+    if false, will play a constant env sound based off the variable put in loop sound (1-3)
