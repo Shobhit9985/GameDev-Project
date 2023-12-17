@@ -48,14 +48,17 @@
      <Compile Include="Assets\ScriptableObjects\AbilityScriptableObject.cs" />
      <Compile Include="Assets\AbilityHolder.cs" />
      <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_Camera.cs" />
+     <Compile Include="Assets\sound stuff\sound stuff\Ambient sound\AmbientSound.cs" />
      <Compile Include="Assets\Splashscreen\SpashSCntrl.cs" />
      <Compile Include="Assets\Script\LevelLoader.cs" />
+     <Compile Include="Assets\Script\EnemyController.cs" />
      <Compile Include="Assets\Script\MainMenuController.cs" />
      <Compile Include="Assets\Scripts\MovePlayer.cs" />
      <Compile Include="Assets\Script\Movement.cs" />
      <Compile Include="Assets\HealthBar.cs" />
      <Compile Include="Assets\Script\LevelLoader1.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
+     <Compile Include="Assets\sound stuff\sound stuff\music\MusicController.cs" />
      <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_Reflection.cs" />
      <Compile Include="Assets\Script\BulletCollisionHandler.cs" />
      <Compile Include="Assets\Script\GunPickup.cs" />
@@ -63,6 +66,7 @@
      <Compile Include="Assets\HealAbility.cs" />
      <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_CamNav.cs" />
      <Compile Include="Assets\Script\CoinCounter.cs" />
+     <Compile Include="Assets\sound stuff\sound stuff\player movement\MovementSound.cs" />
      <Compile Include="Assets\Nokobot\Modern Guns - Handgun\_Demo Assets\SimpleShoot.cs" />
      <Compile Include="Assets\ShopManagerScript.cs" />
      <Compile Include="Assets\Scripts\FollowPlayer.cs" />
@@ -93,6 +97,7 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\sound stuff\sound stuff\HowToImplement.txt" />
      <None Include="Assets\AQUAS-Lite\Shaders\AQUAS-Lite_Backface.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
@@ -721,38 +726,17 @@
     <Reference Include="System.Xml.Serialization">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.10f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline">
-        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">
         <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
         <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+    <Reference Include="Unity.AI.Navigation">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
         <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State.Editor">
-        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
         <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
@@ -763,17 +747,14 @@
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro">
-        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    <Reference Include="UnityEditor.UI">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
         <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    <Reference Include="UnityEngine.UI">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core.Editor">
         <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
@@ -781,20 +762,56 @@
     <Reference Include="Unity.Rider.Editor">
         <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
         <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow.Editor">
         <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Updater">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State.Editor">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+        <HintPath>C:\Users\shobh\Documents\GitHub\Shattered-Shadows\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

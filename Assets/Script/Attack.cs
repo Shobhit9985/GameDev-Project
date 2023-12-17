@@ -16,25 +16,30 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            Meele();
-        }
         
     }
 
-    void Meele()
+    // void Meele()
+    // {
+    //     RaycastHit hit;
+    //         if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, enemyLayer))
+    //         {
+    //             // Check if the hit object has an EnemyController script
+    //             EnemyController enemy = hit.collider.GetComponent<EnemyController>();
+    //             if (enemy != null)
+    //             {
+    //                 // Deal damage to the enemy
+    //                 enemy.TakeDamage(punchDamage);
+    //                 Debug.Log("Enemy damage");
+    //             }
+    //         }
+    // }
+
+    public void OnTriggerEnter(Collider collider)
     {
-        RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, enemyLayer))
-            {
-                // Check if the hit object has an EnemyController script
-                EnemyController enemy = hit.collider.GetComponent<EnemyController>();
-                if (enemy != null)
-                {
-                    // Deal damage to the enemy
-                    enemy.TakeDamage(punchDamage);
-                }
-            }
+        if (collider.gameObject.CompareTag("Enemy") && Input.GetMouseButtonDown(0)){
+            EnemyController enemy = collider.GetComponent<EnemyController>();
+            enemy.TakeDamage(punchDamage);
+        }
     }
 }

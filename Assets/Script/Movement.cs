@@ -23,6 +23,9 @@ public class Movement : MonoBehaviour
 
     private CharacterController characterController;
     private float ySpeed;
+     public GameObject MovementSound;
+        MovementSound movementSound; 
+
    
     private bool crouch = false;
     public GameObject target;
@@ -38,6 +41,7 @@ public class Movement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         //healthBar = GetComponent<HealthBar>();
         healthBar.SetMaxhealth(health);
+         movementSound = MovementSound.GetComponent<MovementSound>();
     }
     //
     void Update()
@@ -92,7 +96,13 @@ public class Movement : MonoBehaviour
         // Calculate the movement direction based on player's current orientation
         Vector3 movementDirection = transform.forward * verticalInput + transform.right * horizontalInput;
         movementDirection.y = 0f; // Ensure the player stays level with the ground
-
+        if (movementDirection.x != 0f || movementDirection.z !=0f)
+        {
+            movementSound.PlayRunGround();
+        }
+        else{
+            movementSound.StopAudio();
+        }
         //characterController.Move(movementDirection * maximumSpeed * Time.deltaTime);
         characterController.SimpleMove(movementDirection * maximumSpeed);
         RaycastHit hit;

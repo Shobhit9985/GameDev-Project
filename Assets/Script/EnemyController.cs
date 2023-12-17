@@ -67,8 +67,8 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        Debug.Log(health);
         health -= damage;
+        Debug.Log(health);
         // Perform any visual/audio feedback for taking damage (e.g., play a hit animation, display a health bar, etc.)
     }
 }
